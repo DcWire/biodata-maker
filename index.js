@@ -18,6 +18,10 @@ app.use(cookieParser());
 // app.use(expressValidator());
 app.use(morgan('dev'));
 
+const pdf = require('./routes/pdf');
+
+app.use('/api', pdf);
+
 const PORT = process.env.PORT || 8005;
 
 app.listen(PORT, () => {
