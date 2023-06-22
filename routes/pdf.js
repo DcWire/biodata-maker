@@ -4,7 +4,7 @@ const { generatePDF } = require('../controllers/pdf');
 
 router.post('/create-pdf', (req, res) => {
     console.log(req.body);
-    generatePDF();
+    generatePDF(req.body);
 })
 
 module.exports = router;

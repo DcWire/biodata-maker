@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-exports.generatePDF = async () => {
+exports.generatePDF = async (body) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     
@@ -11,7 +11,7 @@ exports.generatePDF = async () => {
                 <title>PDF Test</title>
             </head>
             <body>
-                <h1>Hello World</h1>
+                <h1>${JSON.stringify(body)}</h1>
             </body>
         </html>
     `;
