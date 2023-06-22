@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {API} from '../config';
 
 const Home = () => {
 
@@ -18,6 +19,28 @@ const Home = () => {
     const onClick = (event) => {
         event.preventDefault();
         console.log(values);
+        fetch(`${API}/create-pdf`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values)
+        })
+        .then((res) => {
+            return res.json();
+        })
+        .then(data => {
+            if(data.error) {
+                console.log(data.error);
+            }
+            else {
+                console.log(data);
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
     return (
         <div>
