@@ -8,8 +8,16 @@ const FormComponents = (props) => {
             ...values,
             [name]: event.target.value
         })
+        console.log(values);
 
     } 
+
+    const handleDelete = (name) => (event) => {
+        event.preventDefault();
+        const {[name]: deleted, ...rest} = values;
+        setValues(rest);
+        console.log(deleted);
+    }
 
     return (
         <div>
@@ -19,6 +27,7 @@ const FormComponents = (props) => {
                         <div key={index}>
                             <label htmlFor={val}>{val.charAt(0).toUpperCase() + val.slice(1)}</label>
                             <input type='text' id={val} value={values[val]} onChange={handleChangeValues(val)} />
+                            <button onClick={handleDelete(val)}>Delete</button>
                         </div>
                     ) : null
                 })
