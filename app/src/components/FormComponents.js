@@ -8,7 +8,7 @@ const FormComponents = (props) => {
             ...values,
             [name]: event.target.value
         })
-        console.log(values);
+        // console.log(values);
 
     } 
 
@@ -16,7 +16,6 @@ const FormComponents = (props) => {
         event.preventDefault();
         const {[name]: deleted, ...rest} = values;
         setValues(rest);
-        console.log(deleted);
     }
 
     return (

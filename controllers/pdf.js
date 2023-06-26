@@ -1,21 +1,11 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-
+const {template1} = require('../templates/temp1');
 exports.generatePDF = async (body) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     
-    const html = `
-        <html>
-            <head>
-                <title>PDF Test</title>
-            </head>
-            <body>
-                <h1>${JSON.stringify(body)}</h1>
-            </body>
-        </html>
-    `;
-
+    const html = template1(body);
     await page.setContent(html);
     await page.pdf({
         path: 'biodata.pdf',
@@ -26,6 +16,7 @@ exports.generatePDF = async (body) => {
         left: '10mm',
         right: '10mm',
         },
+        printBackground: true
     });
 
 
