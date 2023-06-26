@@ -3,7 +3,7 @@ exports.template1 = (body) => {
     const styles = `
         <style>
             body {
-                background-color: red;
+                background-color: #FFD786;
             }
             h2 {
                 color: blue;
@@ -21,7 +21,7 @@ exports.template1 = (body) => {
                 ${
                     Object.keys(body.values)?.map((value) => {
                     return `<div>
-                                <p>${body.values[value]}</p>
+                                <p>${getString(value)} : ${body.values[value]}</p>
                             </div>`
                     }).join('')
                 }
@@ -29,7 +29,7 @@ exports.template1 = (body) => {
                 ${
                     Object.keys(body.education)?.map((value) => {
                     return `<div>
-                                <p>${body.education[value]}</p>
+                                <p>${getString(value)} : ${body.education[value]}</p>
                             </div>`
                     }).join('')
                 }
@@ -37,7 +37,7 @@ exports.template1 = (body) => {
                 ${
                     Object.keys(body.personal)?.map((value) => {
                     return `<div>
-                                <p>${body.personal[value]}</p>
+                                <p>${getString(value)} : ${body.personal[value]}</p>
                             </div>`
                     }).join('')
                 }
@@ -46,3 +46,9 @@ exports.template1 = (body) => {
 `;
 }
 
+
+const getString = (value) => {
+    const str = value.charAt(0).toUpperCase()+value.slice(1);
+    return str.split(/(?=[A-Z])/).join(' ');
+
+}

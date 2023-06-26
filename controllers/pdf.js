@@ -10,12 +10,12 @@ exports.generatePDF = async (body) => {
     await page.pdf({
         path: 'biodata.pdf',
         format: 'A4',
-        margin: {
-        top: '10mm',
-        bottom: '10mm',
-        left: '10mm',
-        right: '10mm',
-        },
+        // margin: {
+        // top: '10mm',
+        // bottom: '10mm',
+        // left: '10mm',
+        // right: '10mm',
+        // },
         printBackground: true
     });
 
