@@ -46,8 +46,9 @@ const Home = () => {
         fetch(`${API}/create-pdf`, {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
+                Accept: 'application/pdf',
                 'Content-Type': 'application/json',
+                // responseType: 'blob'
             },
             body: JSON.stringify({
                 values,
@@ -56,14 +57,21 @@ const Home = () => {
             })
         })
         .then((res) => {
-            return res.json();
+            console.log(res);
+            return res.blob();
         })
         .then(data => {
             if(data.error) {
                 console.log(data.error);
             }
             else {
-                console.log(data);
+                const url = URL.createObjectURL(data);
+
+                // Open the URL in a new window or tab
+                window.open(url, '_blank');
+
+                // Clean up the URL object when you're done
+                URL.revokeObjectURL(url);
             }
         })
         .catch(err => {

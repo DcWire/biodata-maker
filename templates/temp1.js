@@ -8,6 +8,9 @@ exports.template1 = (body) => {
             h2 {
                 color: blue;
             }
+            h1 {
+                text-align: center;
+            }
         </style>
     `
     return  `
@@ -17,6 +20,7 @@ exports.template1 = (body) => {
             ${styles}
         </head>
         <body>
+            <h1>Biodata</h1>
             <h2>Personal Details</h2>
                 ${
                     Object.keys(body.values)?.map((value) => {

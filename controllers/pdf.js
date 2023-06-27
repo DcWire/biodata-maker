@@ -19,6 +19,6 @@ exports.generatePDF = async (body) => {
         printBackground: true
     });
 
-
+    
     await browser.close();
 }
