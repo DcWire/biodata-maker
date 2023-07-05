@@ -63,7 +63,7 @@ exports.template1 = (body) => {
                 ${
                     Object.keys(body.values)?.map((value) => {
                     return `<div class="aligned-container"><div class = "aligned-text">
-                                <span>${getString(value)}</span> <span>: ${body.values[value]}</span>
+                                <span>${getString(value)}</span> <span>: ${body.values[value]?body.values[value]:""}</span>
                             </div>
                             </div>`
                             
@@ -73,7 +73,7 @@ exports.template1 = (body) => {
                 ${
                     Object.keys(body.education)?.map((value) => {
                     return `<div class="aligned-container"><div class = "aligned-text">
-                                <span>${getString(value)}</span> <span>: ${body.values[value]}</span>
+                                <span>${getString(value)}</span> <span>: ${body.values[value]?body.values[value]:""}</span>
                             </div>
                             </div>`
                     }).join('')
@@ -86,7 +86,7 @@ exports.template1 = (body) => {
                 ${
                     Object.keys(body.personal)?.map((value) => {
                     return `<div class="aligned-container"><div class = "aligned-text">
-                                <span>${getString(value)}</span> <span>:   ${body.values[value]}</span>
+                                <span>${getString(value)}</span> <span>:   ${body.values[value]?body.values[value]:""}</span>
                             </div>
                             </div>`
                     }).join('')
