@@ -1,3 +1,5 @@
+const {readFileSync} = require('fs')
+
 exports.template1 = (body) => {
 
     const styles = `
@@ -48,12 +50,14 @@ exports.template1 = (body) => {
     return  `
     <html>
         <head>
+            <meta charset="utf-8" />
             <title>PDF Test</title>
             ${styles}
         </head>
         
         <body>
             <h3><b><u>Matrimonial Biodata</u></b></h3>
+            <p dir="rtl" lang="ar" style="font-size:50px;text-align:center;">﷽</p>
             <div class="aligned-container">
             <div class = "aligned-text">
             <h4><u>Personal Information</u></h4>
